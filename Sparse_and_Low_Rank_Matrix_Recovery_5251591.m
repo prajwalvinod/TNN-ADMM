@@ -1,5 +1,5 @@
 %% Loading Data
-% 
+
 
 load('Sparse_Low_Rank_dataset.mat'); % loads dataset
 H_cell = squeeze(num2cell(H,[1 2]));
@@ -444,7 +444,7 @@ function [L,S,f_time] = tnn_admm(X,eps,rho,max_iter)
         L_hat = zeros(size(X_hat));
         S_hat = zeros(size(X_hat));
         Y_hat = zeros(size(X_hat));
-        [U{i},~,V{i}] = svds(X_hat,(min(m,n)-rank(X_hat)));
+        [U{i},~,V{i}] = svds(X_hat,rank(X_hat));
         A{i} = U{i}.';
         B{i} = V{i}.';
         iter = 1;
